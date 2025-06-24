@@ -1,8 +1,11 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 
 const Hero = () => {
+  const handleWatchDemo = () => {
+    window.open('https://youtu.be/KEFt2quibkg?si=ntavi-MssXdXfasi', '_blank');
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -35,6 +38,7 @@ const Hero = () => {
               size="lg" 
               variant="outline" 
               className="border-white text-white hover:bg-white hover:text-sky-600 text-lg px-8 py-4"
+              onClick={handleWatchDemo}
             >
               <Play className="mr-2 h-5 w-5" />
               Watch Demo

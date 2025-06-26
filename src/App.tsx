@@ -11,6 +11,10 @@ import Contact from "./pages/Contact";
 import Track from "./pages/Track";
 import FreightBooking from "./pages/FreightBooking";
 import RealTimeTracking from "./pages/RealTimeTracking";
+import SecureTransportation from "./pages/SecureTransportation";
+import ExpressQuote from "./pages/ExpressQuote";
+import SupportContact from "./pages/SupportContact";
+import CustomSolutions from "./pages/CustomSolutions";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +33,10 @@ const App = () => (
           <Route path="/track" element={<Track />} />
           <Route path="/freight-booking" element={<FreightBooking />} />
           <Route path="/real-time-tracking" element={<RealTimeTracking />} />
+          <Route path="/secure-transportation" element={<SecureTransportation />} />
+          <Route path="/express-quote" element={<ExpressQuote />} />
+          <Route path="/support-contact" element={<SupportContact />} />
+          <Route path="/custom-solutions" element={<CustomSolutions />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

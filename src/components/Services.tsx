@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Truck, Shield, Clock, MapPin, Phone, Zap } from "lucide-react";
@@ -13,6 +12,22 @@ const Services = () => {
 
   const handleBookShipment = () => {
     navigate('/freight-booking');
+  };
+
+  const handleSecureTransportation = () => {
+    navigate('/secure-transportation');
+  };
+
+  const handleExpressQuote = () => {
+    navigate('/express-quote');
+  };
+
+  const handleContactSupport = () => {
+    navigate('/support-contact');
+  };
+
+  const handleCustomSolutions = () => {
+    navigate('/custom-solutions');
   };
 
   return (
@@ -122,7 +137,10 @@ const Services = () => {
                   Tamper-proof sealing
                 </li>
               </ul>
-              <Button className="w-full bg-sky-600 hover:bg-sky-700">
+              <Button 
+                className="w-full bg-sky-600 hover:bg-sky-700"
+                onClick={handleSecureTransportation}
+              >
                 Learn More
               </Button>
             </CardContent>
@@ -154,7 +172,10 @@ const Services = () => {
                   Time-critical solutions
                 </li>
               </ul>
-              <Button className="w-full bg-sky-600 hover:bg-sky-700">
+              <Button 
+                className="w-full bg-sky-600 hover:bg-sky-700"
+                onClick={handleExpressQuote}
+              >
                 Get Quote
               </Button>
             </CardContent>
@@ -186,7 +207,10 @@ const Services = () => {
                   Email support
                 </li>
               </ul>
-              <Button className="w-full bg-sky-600 hover:bg-sky-700">
+              <Button 
+                className="w-full bg-sky-600 hover:bg-sky-700"
+                onClick={handleContactSupport}
+              >
                 Contact Us
               </Button>
             </CardContent>
@@ -218,7 +242,10 @@ const Services = () => {
                   Specialized handling
                 </li>
               </ul>
-              <Button className="w-full bg-sky-600 hover:bg-sky-700">
+              <Button 
+                className="w-full bg-sky-600 hover:bg-sky-700"
+                onClick={handleCustomSolutions}
+              >
                 Discuss Requirements
               </Button>
             </CardContent>

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ArrowLeft, Phone, MapPin, Truck, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -25,7 +24,7 @@ const FreightBooking = () => {
   const demoTrucks: TruckDetails[] = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/cc617f3a-bdc7-430c-98b3-ad7f2f3153ff.png",
       truckType: "Container Truck",
       capacity: "32 Tons",
       price: "₹45,000",
@@ -37,7 +36,7 @@ const FreightBooking = () => {
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1566024287286-457247b70310?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/b63be89f-17f8-42e6-8dfd-d3833cbe13b3.png",
       truckType: "Open Truck",
       capacity: "16 Tons",
       price: "₹28,000",
@@ -49,7 +48,7 @@ const FreightBooking = () => {
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/48cedd71-aeee-4467-8034-140176cae63b.png",
       truckType: "Trailer Truck",
       capacity: "40 Tons",
       price: "₹65,000",
@@ -61,7 +60,7 @@ const FreightBooking = () => {
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/d6093dc7-1b1d-4c81-9c05-c7a31a6630b0.png",
       truckType: "Mini Truck",
       capacity: "3 Tons",
       price: "₹8,500",
@@ -73,7 +72,7 @@ const FreightBooking = () => {
     },
     {
       id: 5,
-      image: "https://images.unsplash.com/photo-1566024287286-457247b70310?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/17f7ac79-cd1d-47fb-930c-7f66f3f6c03d.png",
       truckType: "Refrigerated Truck",
       capacity: "20 Tons",
       price: "₹55,000",
@@ -85,7 +84,7 @@ const FreightBooking = () => {
     },
     {
       id: 6,
-      image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/c6b9fd75-b9f0-4fb4-b2f9-fafaa31d49df.png",
       truckType: "Flatbed Truck",
       capacity: "25 Tons",
       price: "₹42,000",
@@ -97,7 +96,7 @@ const FreightBooking = () => {
     },
     {
       id: 7,
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/e0aaac32-b411-4990-a099-4bde9747ac97.png",
       truckType: "Tanker Truck",
       capacity: "30 Tons",
       price: "₹58,000",
@@ -109,7 +108,7 @@ const FreightBooking = () => {
     },
     {
       id: 8,
-      image: "https://images.unsplash.com/photo-1566024287286-457247b70310?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/5ef96025-aed4-4a9e-9290-87fdf649ad26.png",
       truckType: "Pickup Truck",
       capacity: "1.5 Tons",
       price: "₹5,500",
@@ -121,7 +120,7 @@ const FreightBooking = () => {
     },
     {
       id: 9,
-      image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/d3b0a01b-51c8-4ff0-875f-6617a25dda40.png",
       truckType: "Heavy Duty Truck",
       capacity: "50 Tons",
       price: "₹85,000",
@@ -133,7 +132,7 @@ const FreightBooking = () => {
     },
     {
       id: 10,
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/ef80c258-c43e-4755-b7e5-2c32ac63e047.png",
       truckType: "Car Carrier",
       capacity: "12 Cars",
       price: "₹38,000",

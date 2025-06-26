@@ -10,6 +10,7 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Track from "./pages/Track";
 import FreightBooking from "./pages/FreightBooking";
+import RealTimeTracking from "./pages/RealTimeTracking";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/track" element={<Track />} />
           <Route path="/freight-booking" element={<FreightBooking />} />
+          <Route path="/real-time-tracking" element={<RealTimeTracking />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

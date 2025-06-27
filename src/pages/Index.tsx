@@ -10,8 +10,13 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import TrackingSection from "@/components/TrackingSection";
+import TruckRegistrationForm from "@/components/TruckRegistrationForm";
+import EnterpriseQuoteForm from "@/components/EnterpriseQuoteForm";
 
 const Index = () => {
+  const [isTruckFormOpen, setIsTruckFormOpen] = useState(false);
+  const [isEnterpriseFormOpen, setIsEnterpriseFormOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-50 to-blue-50">
       <Navbar />
@@ -79,7 +84,10 @@ const Index = () => {
                     24/7 support
                   </li>
                 </ul>
-                <Button className="w-full bg-sky-600 hover:bg-sky-700">
+                <Button 
+                  className="w-full bg-sky-600 hover:bg-sky-700"
+                  onClick={() => setIsTruckFormOpen(true)}
+                >
                   Register Your Truck
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -111,7 +119,10 @@ const Index = () => {
                     Advanced analytics
                   </li>
                 </ul>
-                <Button className="w-full bg-sky-600 hover:bg-sky-700">
+                <Button 
+                  className="w-full bg-sky-600 hover:bg-sky-700"
+                  onClick={() => setIsEnterpriseFormOpen(true)}
+                >
                   Get Enterprise Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -122,6 +133,16 @@ const Index = () => {
       </section>
 
       <Footer />
+
+      <TruckRegistrationForm 
+        isOpen={isTruckFormOpen} 
+        onClose={() => setIsTruckFormOpen(false)} 
+      />
+      
+      <EnterpriseQuoteForm 
+        isOpen={isEnterpriseFormOpen} 
+        onClose={() => setIsEnterpriseFormOpen(false)} 
+      />
     </div>
   );
 };

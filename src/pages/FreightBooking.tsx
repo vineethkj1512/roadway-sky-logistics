@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowLeft, Phone, MapPin, Truck, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -20,6 +21,7 @@ interface TruckDetails {
 
 const FreightBooking = () => {
   const [selectedTruck, setSelectedTruck] = useState<TruckDetails | null>(null);
+  const navigate = useNavigate();
 
   const demoTrucks: TruckDetails[] = [
     {
@@ -152,6 +154,10 @@ const FreightBooking = () => {
     setSelectedTruck(null);
   };
 
+  const handleBookNow = () => {
+    navigate('/demo-payment');
+  };
+
   if (selectedTruck) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-sky-50 to-blue-50">
@@ -216,7 +222,11 @@ const FreightBooking = () => {
                         <p className="text-sm text-gray-600">Total Price</p>
                         <p className="text-3xl font-bold text-sky-600">{selectedTruck.price}</p>
                       </div>
-                      <Button size="lg" className="bg-sky-600 hover:bg-sky-700">
+                      <Button 
+                        size="lg" 
+                        className="bg-sky-600 hover:bg-sky-700"
+                        onClick={handleBookNow}
+                      >
                         Book Now
                       </Button>
                     </div>

@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -36,16 +37,16 @@ const CustomSolutions = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-sky-600 to-blue-700 text-white">
+      <section className="py-20 bg-gradient-to-r from-sky-600 to-blue-700 text-white relative">
+        <Button 
+          onClick={() => navigate('/')} 
+          variant="outline" 
+          className="absolute top-4 left-4 border-white text-white hover:bg-white hover:text-sky-600"
+        >
+          <Home className="mr-2 h-4 w-4" />
+          Back to Home
+        </Button>
         <div className="container mx-auto px-4 text-center">
-          <Button 
-            onClick={() => navigate('/')} 
-            variant="outline" 
-            className="mb-6 border-white text-white hover:bg-white hover:text-sky-600"
-          >
-            <Home className="mr-2 h-4 w-4" />
-            Back to Home
-          </Button>
           <h1 className="text-5xl font-bold mb-6">Custom Logistics Solutions</h1>
           <p className="text-xl max-w-3xl mx-auto">
             Tailored logistics solutions designed specifically for your business needs

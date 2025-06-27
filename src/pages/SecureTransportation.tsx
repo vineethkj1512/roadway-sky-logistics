@@ -3,9 +3,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Shield, Eye, Lock, Phone, CheckCircle, Clock } from "lucide-react";
+import { Shield, Eye, Lock, Phone, CheckCircle, Clock, Home } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const SecureTransportation = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-50 to-blue-50">
       <Navbar />
@@ -13,6 +16,14 @@ const SecureTransportation = () => {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-r from-sky-600 to-blue-700 text-white">
         <div className="container mx-auto px-4 text-center">
+          <Button 
+            onClick={() => navigate('/')} 
+            variant="outline" 
+            className="mb-6 border-white text-white hover:bg-white hover:text-sky-600"
+          >
+            <Home className="mr-2 h-4 w-4" />
+            Back to Home
+          </Button>
           <h1 className="text-5xl font-bold mb-6">Secure Transportation</h1>
           <p className="text-xl max-w-3xl mx-auto">
             End-to-end security solutions for your valuable cargo with comprehensive protection

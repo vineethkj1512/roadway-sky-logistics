@@ -1,11 +1,12 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Truck, MapPin, Clock, Shield, Globe, Zap, Users, FileText, ArrowRight } from "lucide-react";
+import { Truck, MapPin, Clock, Shield, Globe, Zap, Users, FileText, ArrowRight, Home } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Services = () => {
+  const navigate = useNavigate();
   const services = [
     {
       icon: Truck,
@@ -89,6 +90,14 @@ const Services = () => {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-r from-sky-600 to-blue-700 text-white">
         <div className="container mx-auto px-4 text-center">
+          <Button 
+            onClick={() => navigate('/')} 
+            variant="outline" 
+            className="mb-6 border-white text-white hover:bg-white hover:text-sky-600"
+          >
+            <Home className="mr-2 h-4 w-4" />
+            Back to Home
+          </Button>
           <h1 className="text-5xl font-bold mb-6">Our Services</h1>
           <p className="text-xl max-w-3xl mx-auto">
             Comprehensive logistics solutions designed to streamline your supply chain operations and drive business growth

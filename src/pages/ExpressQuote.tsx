@@ -1,20 +1,42 @@
-
-import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Clock, Calendar, MapPin, Package, Truck } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Clock, Zap, Shield, Calendar, Package, Home } from "lucide-react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ExpressQuote = () => {
-  const [pickupDate, setPickupDate] = useState("");
-  const [deliveryTime, setDeliveryTime] = useState("");
-  
-  const handleGetQuote = () => {
-    // Demo functionality
-    alert("Quote generated! You'll receive it via SMS and email within 5 minutes.");
+  const navigate = useNavigate();
+  const [origin, setOrigin] = useState("");
+  const [destination, setDestination] = useState("");
+  const [packageType, setPackageType] = useState("");
+  const [weight, setWeight] = useState("");
+  const [deliveryDate, setDeliveryDate] = useState("");
+  const [quote, setQuote] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleGetQuote = async () => {
+    setIsLoading(true);
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    // Generate a dummy quote
+    const basePrice = 500;
+    const weightFactor = parseFloat(weight) * 10;
+    const distanceFactor = 200; // Assume a fixed distance factor
+    const expressFactor = 300; // Express delivery surcharge
+
+    const calculatedQuote = basePrice + weightFactor + distanceFactor + expressFactor;
+
+    setQuote({
+      price: calculatedQuote,
+      deliveryTime: "1-2 business days",
+      insuranceCoverage: "₹50,000",
+    });
+    setIsLoading(false);
   };
 
   return (
@@ -24,142 +46,157 @@ const ExpressQuote = () => {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-r from-sky-600 to-blue-700 text-white">
         <div className="container mx-auto px-4 text-center">
+          <Button 
+            onClick={() => navigate('/')} 
+            variant="outline" 
+            className="mb-6 border-white text-white hover:bg-white hover:text-sky-600"
+          >
+            <Home className="mr-2 h-4 w-4" />
+            Back to Home
+          </Button>
           <h1 className="text-5xl font-bold mb-6">Express Delivery Quote</h1>
           <p className="text-xl max-w-3xl mx-auto">
-            Get instant quotes for same-day and express delivery services
+            Get instant quotes for time-critical deliveries with guaranteed on-time performance
           </p>
         </div>
       </section>
 
+      {/* Quote Form and Results */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Quote Form */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-2xl">Get Express Quote</CardTitle>
-                  <CardDescription>Fill in your delivery details for instant pricing</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="pickup">Pickup Location</Label>
-                      <Input id="pickup" placeholder="Enter pickup city" />
-                    </div>
-                    <div>
-                      <Label htmlFor="delivery">Delivery Location</Label>
-                      <Input id="delivery" placeholder="Enter delivery city" />
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="date">Pickup Date</Label>
-                      <Input 
-                        id="date" 
-                        type="date" 
-                        value={pickupDate}
-                        onChange={(e) => setPickupDate(e.target.value)}
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="time">Preferred Time</Label>
-                      <select 
-                        className="w-full p-2 border rounded-md"
-                        value={deliveryTime}
-                        onChange={(e) => setDeliveryTime(e.target.value)}
-                      >
-                        <option value="">Select time slot</option>
-                        <option value="morning">Morning (9 AM - 12 PM)</option>
-                        <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
-                        <option value="evening">Evening (4 PM - 8 PM)</option>
-                        <option value="urgent">Urgent (Within 4 hours)</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <Label htmlFor="weight">Package Weight (kg)</Label>
-                    <Input id="weight" type="number" placeholder="Enter weight" />
-                  </div>
-
-                  <Button onClick={handleGetQuote} className="w-full bg-sky-600 hover:bg-sky-700">
-                    Get Instant Quote
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Demo Delivery Details */}
-              <div className="space-y-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Calendar className="h-5 w-5" />
-                      Sample Delivery Timeline
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center p-3 bg-sky-50 rounded-lg">
-                        <span>Same Day Express</span>
-                        <span className="font-bold text-sky-600">Within 8 hours</span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                        <span>Super Express</span>
-                        <span className="font-bold text-green-600">Within 4 hours</span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg">
-                        <span>Ultra Express</span>
-                        <span className="font-bold text-orange-600">Within 2 hours</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Clock className="h-5 w-5" />
-                      Service Features
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3">
-                        <Package className="h-4 w-4 text-sky-500" />
-                        <span>Priority handling at all stages</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <Truck className="h-4 w-4 text-sky-500" />
-                        <span>Dedicated express vehicles</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <MapPin className="h-4 w-4 text-sky-500" />
-                        <span>Real-time tracking updates</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <Clock className="h-4 w-4 text-sky-500" />
-                        <span>Time-slot guarantee</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Demo Pricing</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-center p-4 bg-gradient-to-r from-sky-500 to-blue-600 text-white rounded-lg">
-                      <div className="text-2xl font-bold">₹299 - ₹899</div>
-                      <div className="text-sm opacity-90">Based on distance and urgency</div>
-                    </div>
-                  </CardContent>
-                </Card>
+          <Card className="max-w-3xl mx-auto shadow-xl border-0">
+            <CardHeader className="text-center">
+              <CardTitle className="text-2xl text-gray-900">Get an Instant Quote</CardTitle>
+              <CardDescription>Fill out the details below to get an express delivery quote</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {/* Origin and Destination */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Origin
+                  </label>
+                  <Input
+                    type="text"
+                    placeholder="Enter origin city"
+                    value={origin}
+                    onChange={(e) => setOrigin(e.target.value)}
+                    className="h-12 text-lg border-sky-200 focus:border-sky-400"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Destination
+                  </label>
+                  <Input
+                    type="text"
+                    placeholder="Enter destination city"
+                    value={destination}
+                    onChange={(e) => setDestination(e.target.value)}
+                    className="h-12 text-lg border-sky-200 focus:border-sky-400"
+                  />
+                </div>
               </div>
-            </div>
-          </div>
+
+              {/* Package Type and Weight */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Package Type
+                  </label>
+                  <Select onValueChange={setPackageType}>
+                    <SelectTrigger className="h-12 text-lg w-full border-sky-200 focus:border-sky-400">
+                      <SelectValue placeholder="Select package type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="electronics">Electronics</SelectItem>
+                      <SelectItem value="documents">Documents</SelectItem>
+                      <SelectItem value="clothing">Clothing</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Weight (in kg)
+                  </label>
+                  <Input
+                    type="number"
+                    placeholder="Enter weight"
+                    value={weight}
+                    onChange={(e) => setWeight(e.target.value)}
+                    className="h-12 text-lg border-sky-200 focus:border-sky-400"
+                  />
+                </div>
+              </div>
+
+              {/* Delivery Date */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Delivery Date
+                </label>
+                <Input
+                  type="date"
+                  value={deliveryDate}
+                  onChange={(e) => setDeliveryDate(e.target.value)}
+                  className="h-12 text-lg border-sky-200 focus:border-sky-400"
+                />
+              </div>
+
+              {/* Get Quote Button */}
+              <Button
+                onClick={handleGetQuote}
+                className="w-full h-12 text-lg bg-sky-600 hover:bg-sky-700"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <>
+                    <Clock className="mr-2 h-5 w-5 animate-spin" />
+                    Getting Quote...
+                  </>
+                ) : (
+                  <>
+                    <Zap className="mr-2 h-5 w-5" />
+                    Get Express Quote
+                  </>
+                )}
+              </Button>
+
+              {/* Quote Results */}
+              {quote && (
+                <div className="mt-8 p-6 bg-sky-50 rounded-lg">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                    Quote Details
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <div className="text-sm text-gray-600">Price</div>
+                      <div className="font-medium text-lg">₹{quote.price}</div>
+                    </div>
+                    <div>
+                      <div className="text-sm text-gray-600">
+                        Estimated Delivery Time
+                      </div>
+                      <div className="font-medium text-lg">{quote.deliveryTime}</div>
+                    </div>
+                    <div>
+                      <div className="text-sm text-gray-600">
+                        Insurance Coverage
+                      </div>
+                      <div className="font-medium text-lg">{quote.insuranceCoverage}</div>
+                    </div>
+                    <div>
+                      <div className="text-sm text-gray-600">Guaranteed</div>
+                      <div className="font-medium text-lg">On-time Delivery</div>
+                    </div>
+                  </div>
+                  <Button className="w-full mt-6 bg-green-600 hover:bg-green-700">
+                    Book Express Delivery
+                  </Button>
+                </div>
+              )}
+            </CardContent>
+          </Card>
         </div>
       </section>
 

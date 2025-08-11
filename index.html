@@ -1,129 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roadways Logistics - India's Trusted Logistics Platform</title>
-    <meta name="description" content="India's most trusted logistics platform connecting shippers with verified transporters across 500+ cities. Real-time tracking, instant quotes, 24/7 support.">
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/components.css">
-    <link rel="stylesheet" href="styles/animations.css">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">🚛</div>
-                    <div class="logo-text">
-                        <div class="brand-name">Roadways</div>
-                        <div class="brand-subtitle">Logistics</div>
-                    </div>
-                </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>roadway-sky-logistics</title>
+    <meta name="description" content="Lovable Generated Project" />
+    <meta name="author" content="Lovable" />
 
-                <div class="nav-links">
-                    <a href="index.html" class="nav-link active">Home</a>
-                    <a href="services.html" class="nav-link">Services</a>
-                    <a href="about.html" class="nav-link">About Us</a>
-                    <a href="track.html" class="nav-link">Track Shipment</a>
-                    <a href="contact.html" class="nav-link">Contact</a>
-                </div>
+    <meta property="og:title" content="roadway-sky-logistics" />
+    <meta property="og:description" content="Lovable Generated Project" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-                <div class="nav-buttons">
-                    <button class="btn btn-outline" onclick="openLoginModal()">Login</button>
-                    <a href="freight-booking.html" class="btn btn-primary">Get Started</a>
-                </div>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  </head>
 
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                    <span class="hamburger"></span>
-                </button>
-            </div>
-
-            <div class="mobile-menu" id="mobileMenu">
-                <div class="mobile-nav-links">
-                    <a href="index.html" class="mobile-nav-link">Home</a>
-                    <a href="services.html" class="mobile-nav-link">Services</a>
-                    <a href="about.html" class="mobile-nav-link">About Us</a>
-                    <a href="track.html" class="mobile-nav-link">Track Shipment</a>
-                    <a href="contact.html" class="mobile-nav-link">Contact</a>
-                    <div class="mobile-buttons">
-                        <button class="btn btn-outline" onclick="openLoginModal()">Login</button>
-                        <a href="freight-booking.html" class="btn btn-primary">Get Started</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-background"></div>
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title animate-fade-in">
-                    Delivering Smart.
-                    <span class="hero-subtitle">Moving Fast.</span>
-                </h1>
-                
-                <p class="hero-description animate-fade-in">
-                    India's most trusted logistics platform connecting shippers with verified transporters across 500+ cities
-                </p>
-                
-                <div class="hero-buttons animate-fade-in">
-                    <a href="freight-booking.html" class="btn btn-hero-primary">
-                        Book a Shipment →
-                    </a>
-                    <button class="btn btn-hero-outline" onclick="watchDemo()">
-                        ▶ Watch Demo
-                    </button>
-                </div>
-                
-                <div class="hero-stats animate-fade-in">
-                    <div class="stat">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Customer Support</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">Real-time</div>
-                        <div class="stat-label">Tracking</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">Instant</div>
-                        <div class="stat-label">Quotes</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="scroll-indicator">
-            <div class="scroll-dot"></div>
-        </div>
-    </section>
-
-    <!-- Modals -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Login to Your Account</h3>
-                <button class="modal-close" onclick="closeLoginModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-full">Login</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <script src="scripts/main.js"></script>
-</body>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

@@ -16,7 +16,6 @@ import SecureTransportation from "./pages/SecureTransportation";
 import ExpressQuote from "./pages/ExpressQuote";
 import SupportContact from "./pages/SupportContact";
 import CustomSolutions from "./pages/CustomSolutions";
-import DemoPayment from "./pages/DemoPayment";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,7 +39,6 @@ const App = () => (
           <Route path="/express-quote" element={<ExpressQuote />} />
           <Route path="/support-contact" element={<SupportContact />} />
           <Route path="/custom-solutions" element={<CustomSolutions />} />
-          <Route path="/demo-payment" element={<DemoPayment />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
